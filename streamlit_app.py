@@ -156,5 +156,20 @@ top = (
 )
 
 for row in top.data:
-    st.write(f"- {row['title']}")
+    col_left, col_right = st.columns([4, 1])
 
+    with col_left:
+        st.write(row["title"])
+
+    with col_right:
+        if st.button("読む", key=f"popular_{row['url']}"):
+            send_click_to_db(row["url"], row["title"])
+            st.success("📊 クリックを記録しました。Wikipediaへ移動します…")
+
+            st.markdown(
+                f"""
+                <meta http-equiv="refresh" content="0; url={row['url']}">
+                """,
+                unsafe_allow_html=True
+            )
+            st.stop()
