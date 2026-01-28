@@ -1,19 +1,66 @@
-# 🎈 Blank app template
+# Wikipedia ランダム記事推薦アプリ
 
-A simple Streamlit app template for you to modify!
+## 概要
+このアプリは、Wikipedia日本語版からランダムに記事を取得し、  
+「今日出会う記事」を提示するWebアプリです。  
+ユーザーのクリック情報を記録し、人気の記事をランキング形式で表示します。
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+Streamlit を用いてフロントエンドを構築し、  
+Supabase を用いてクリック数などのデータを保存しています。
 
-### How to run it on your own machine
+---
 
-1. Install the requirements
+## アプリURL
+以下のURLから実際にアプリを試すことができます。
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+👉 https://wiki-recommend-app-udt9zya7w5.streamlit.app/
 
-2. Run the app
+---
 
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+## 主な機能
+
+### 1. Wikipediaランダム記事の取得
+- Wikipedia日本語版のAPIを利用
+- ランダムな記事を複数件取得して表示
+- 記事タイトル、概要、本文要約、画像を表示
+
+### 2. 1日1回の記事取得制限
+- 同じ日に何度も記事を更新できないよう制御
+- Streamlit の session_state を利用
+
+### 3. 記事クリックの記録
+- 「Wikipediaで読む」ボタンを押すとクリックを記録
+- Supabaseのデータベースにクリック数を保存
+- 記事ごとの人気度を集計
+
+### 4. 人気記事ランキング表示
+- クリック数が多い記事を上位表示
+- 人気記事からも直接Wikipediaへ遷移可能
+- ランキング機能として活用
+
+---
+
+## 使用技術
+
+- **Python**
+- **Streamlit**（WebアプリUI）
+- **Wikipedia REST API**
+- **Supabase**（PostgreSQLベースのデータベース）
+- **GitHub**（ソースコード管理）
+
+---
+
+## データベース構成（概要）
+Supabase上に以下の情報を保存しています。
+
+- 記事URL
+- 記事タイトル
+- クリック回数
+
+クリック数を元に人気記事を集計しています。
+
+---
+
+## 補足
+本アプリは学習目的で作成したものであり、  
+セキュリティ設定は最小限としています。
