@@ -42,16 +42,12 @@ tag_choices = {
     "世界遺産": "Category:世界遺産",
     "城": "Category:城",
     "橋": "Category:橋",
-    "高層ビル": "Category:高層ビル",
 
     # 雑学・軽め
     "祝日": "Category:祝日",
     "日本の祝日": "Category:日本の祝日",
     "料理": "Category:料理",
-    "日本料理": "Category:日本料理",
-    "食材": "Category:食材",
-    "飲み物": "Category:飲み物",
-    "記念日": "Category:記念日",
+    "食材": "Category:食材"
 }
 
 # ----------------------------
@@ -176,7 +172,7 @@ with col1:
 with col2:
     param = st.selectbox(
         "カテゴリ",
-        options=[param] + list(tag_choices.keys()),
+        options=['random'] + list(tag_choices.keys()),
         index=0,
         key="selected_category"
     )
