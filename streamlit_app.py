@@ -172,7 +172,7 @@ with col1:
 with col2:
     param = st.selectbox(
         "カテゴリ",
-        options=['random'] + list(tag_choices.keys()),
+        options=[param] + list(tag_choices.keys()),
         index=0,
         key="selected_category"
     )
